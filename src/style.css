@@ -34,3 +34,10 @@
 .restaurant-card > img {
     width: 100%;
 }
+
+.shimmer-card {
+    width: 200px;
+    height: 200px;
+    background-color: lightgrey;
+    margin: 10px;
+}

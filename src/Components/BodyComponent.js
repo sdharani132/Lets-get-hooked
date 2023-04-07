@@ -7,6 +7,11 @@ const BodyComponent = () => {
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [searchText, setSearchText] = useState('');
 
+    /**
+     * If dependency array is not mentioned, then useEffect will be called after every render.
+     * If it is empty then it is called only once after initial render.
+     * Else it gets called once for initial render and then gets called every time the state variable mentioned in the array changes.
+     */
     useEffect(() => {
         console.log("useEffect called");
         getRestaurants();

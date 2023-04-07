@@ -9,3 +9,4 @@ So we simply destructure the returned array when using useState.
 
 https://stackoverflow.com/questions/69690181/reactjs-warning-a-component-is-changing-an-uncontrolled-input-to-be-controll
 
+Never declare another component inside a component. Because when a state variable changes and re renders then each time this component gets created. Instead create above and call it inside required component.
