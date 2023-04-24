@@ -19,3 +19,13 @@ Outlet -- Done
 useRouterError -- Done
 useParams -- Done
 Formik usage -- PENDING
+
+Chapter - 8:
+Class Based Component:
+
+SetInterval in componentDidMount (Try with <a> instead Link tag for routing and see if it is clearing the intervals as page refresh happens when <a> tag is used)
+In class components we use component will unmount for reset but in react functional components we return a function in useeffect which resets if anything is required to be.
+
+Complete chapter 8 assignment.
+
+Chapter - 9:

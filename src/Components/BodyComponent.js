@@ -16,6 +16,17 @@ const BodyComponent = () => {
     useEffect(() => {
         console.log("useEffect called");
         getRestaurants();
+
+        let counter = 0;
+        const interval = setInterval(() => {
+            console.log(++counter);
+        }, 2000);
+
+        // clear the interval.. similar to component will unmount in class components
+        return function() {
+            console.log("component unmounting...");
+            clearInterval(interval);
+        }
     }, []);
 
     async function getRestaurants() {
