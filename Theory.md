@@ -27,5 +27,17 @@ SetInterval in componentDidMount (Try with <a> instead Link tag for routing and 
 In class components we use component will unmount for reset but in react functional components we return a function in useeffect which resets if anything is required to be.
 
 Complete chapter 8 assignment.
+TO BE DONE
 
 Chapter - 9:
+
+1st hour -- About custom hooks. 
+Extract getrestaurants logic in body also into a hook.
+
+2nd hour -- Online/Offline custom hook(Used listeners and added info about it in the hook)
+
+3rd hour -- Lazy loading
+
+Very nice info --- https://react.dev/learn/preserving-and-resetting-state#resetting-state-at-the-same-position
+Create a hook and for local storage.
+Try creating one custom hook and push into npm

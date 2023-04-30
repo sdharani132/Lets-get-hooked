@@ -1,25 +1,17 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { imageURL } from "../constants";
+import useRestaurantProfile from "../utils/useRestaurantProfile";
 import ShimmerUIComponent from "./ShimmerUIComponent";
 
 const RestaurantInfo = () => {
     const {restID} = useParams();
-    console.log(restID);
-    const [restProfile, setRestProfile] = useState({});
 
-    useEffect(() => {
-        getRestaurantProfile();
-    }, [])
-    async function getRestaurantProfile() {
-        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.41412&lng=78.5790607&restaurantId="+ restID +"&submitAction=ENTER");
-
-        const jsonData = await data.json();
-        console.log(jsonData);
-        setRestProfile(jsonData);
-    }
-
+    console.log("Restaurant info component called");
+    const restProfile = useRestaurantProfile(restID);
     const restInfo = restProfile?.data?.cards[0]?.card?.card?.info;
+    console.log(restProfile);
+    console.log(restInfo);
 
     if(!restInfo) return <ShimmerUIComponent />
 

@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import ShimmerUIComponent from "./ShimmerUIComponent";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 const BodyComponent = () => {
     const [allRestaurants, setAllRestaurants] = useState([]);
@@ -17,16 +18,20 @@ const BodyComponent = () => {
         console.log("useEffect called");
         getRestaurants();
 
-        let counter = 0;
-        const interval = setInterval(() => {
-            console.log(++counter);
-        }, 2000);
+        /**
+         *  For demonstration of component unmounting 
+        
+            let counter = 0;
+            const interval = setInterval(() => {
+                console.log(++counter);
+            }, 2000);
 
-        // clear the interval.. similar to component will unmount in class components
-        return function() {
-            console.log("component unmounting...");
-            clearInterval(interval);
-        }
+            // clear the interval.. similar to component will unmount in class components
+            return function() {
+                console.log("component unmounting...");
+                clearInterval(interval);
+            }
+        */
     }, []);
 
     async function getRestaurants() {
@@ -36,6 +41,12 @@ const BodyComponent = () => {
         console.log(json_data);
         setAllRestaurants(json_data?.data?.cards[2]?.data?.data?.cards);
         setFilteredRestaurants(json_data?.data?.cards[2]?.data?.data?.cards);
+    }
+
+    console.log("Body component called");
+    const isOnline = useOnline();
+    if(!isOnline) {
+        return <h2> You are offline. Please check your internet connection... </h2>
     }
 
     // early return -- when allRestaurants is undefined
